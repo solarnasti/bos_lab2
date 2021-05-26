@@ -1,0 +1,24 @@
+[Unit]
+Description=MEPhI hello service
+After=sshd.service
+[Service]
+ExecStart=/usr/bin/printf "Hello, MephI"
+[Install]
+WantedBy=multi-user.target
+# mephi.service
+[Unit]
+Description="CHeck for MEPHI file in /tmp"
+After=sshd.service
+[Path]
+PathExists=/tmp/mephi.file
+Unit=mephi.service
+[Install]
+WantedBy=multi-user.target
+# mephi.path
+-- Logs begin at Mon 2021-03-29 14:54:06 MSK. --
+мая 26 21:09:10 solarnasti systemd[1]: Started MEPhI hello service.
+мая 26 21:09:10 solarnasti printf[3705]: Hello, MephI
+мая 26 21:09:10 solarnasti systemd[1]: mephi.service: Succeeded.
+мая 26 21:12:28 solarnasti systemd[1]: Started MEPhI hello service.
+мая 26 21:12:28 solarnasti printf[3756]: Hello, MephI
+мая 26 21:12:28 solarnasti systemd[1]: mephi.service: Succeeded.
